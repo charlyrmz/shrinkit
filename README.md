@@ -1,0 +1,139 @@
+# shrinkit
+
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+Herramienta de línea de comandos en Python para comprimir archivos y reducir el tamaño de imágenes. Pensada como utilidad ligera para uso diario y como proyecto de aprendizaje sobre CLIs, compresión y manejo de archivos.
+
+> **Nota:** shrinkit realiza operaciones de E/S con los privilegios del proceso actual. Como cualquier herramienta que lee y escribe archivos, accederá a los recursos que el proceso pueda acceder. Sanitiza tus entradas en entornos no confiables.
+
+## Características
+
+- Empaquetado en `.zip` con compresión configurable (sin pérdida).
+- Compresión a `.gz` para archivos individuales (sin pérdida).
+- Reducción de imágenes con ajuste de calidad y redimensionado (con pérdida).
+- Reporte automático de ahorro de espacio (original vs. final).
+- Comando `info` para inspeccionar el tamaño de archivos y carpetas.
+
+## ¿Por qué dos modos: con y sin pérdida?
+
+No son lo mismo. La compresión sin pérdida, como `.zip` y `.gz`, reconstruye el archivo bit a bit, pero su efectividad cae mucho con archivos ya comprimidos (JPG, PNG, MP4, PDF moderno, XLSX). La reducción con pérdida, como ajustar calidad de JPEG, reduce mucho más a costa de información. shrinkit te deja elegir el enfoque correcto según el archivo.
+
+## Requisitos
+
+- Python 3.10 o superior.
+- Pillow, opcional, solo si vas a usar el subcomando `image`.
+
+## Instalación
+
+### Desde el código fuente
+
+```bash
+git clone https://github.com/<tu-usuario>/shrinkit.git
+cd shrinkit
+pip install .
+```
+
+Esto instala el comando `shrinkit` en tu PATH.
+
+### En modo desarrollo
+
+```bash
+pip install -e .
+```
+
+### Solo descargar el script
+
+Si prefieres no instalar, puedes ejecutar el script directamente:
+
+```bash
+python shrinkit.py --help
+```
+
+## Uso
+
+### Empaquetar a ZIP
+
+```bash
+shrinkit zip mi_carpeta -o backup.zip
+shrinkit zip archivo.csv -l 9
+```
+
+Opciones:
+
+- `-o, --output`: ruta del archivo `.zip` de salida.
+- `-l, --level`: nivel de compresión, 0 a 9. Default: 6.
+
+### Comprimir a GZIP
+
+```bash
+shrinkit gzip dataset.csv
+shrinkit gzip log.txt -o log.txt.gz -l 9
+```
+
+Opciones:
+
+- `-o, --output`: ruta del archivo `.gz` de salida.
+- `-l, --level`: nivel de compresión, 1 a 9. Default: 9.
+
+### Reducir imágenes
+
+Requiere instalar Pillow: `pip install Pillow`.
+
+```bash
+shrinkit image foto.jpg -q 75
+shrinkit image banner.png -q 80 --max-width 1600 -o banner_web.jpg
+```
+
+Opciones:
+
+- `-o, --output`: ruta de la imagen de salida.
+- `-q, --quality`: calidad, 1 a 95. Default: 80. Solo aplica a JPEG y WEBP.
+- `--max-width`: ancho máximo en píxeles. Si la imagen es más ancha, se redimensiona conservando proporción.
+
+### Consultar tamaño
+
+```bash
+shrinkit info mi_carpeta
+shrinkit info dataset.csv
+```
+
+## Ejemplo de salida
+
+```
+$ shrinkit gzip dataset.csv
+Archivo creado: dataset.csv.gz
+  Original: 1.53 MB
+  Final:    403.84 KB
+  Ahorro:   74.3 %
+```
+
+## Roadmap
+
+Funcionalidad planeada para próximas versiones:
+
+- Soporte para `tar.gz` y `tar.bz2`.
+- Compresión de PDFs con `pikepdf`.
+- Procesamiento batch de carpetas de imágenes en paralelo, usando `concurrent.futures`.
+- Modo dry-run para estimar ahorro sin escribir archivos.
+- Tests automatizados con `pytest`.
+
+## Contribuir
+
+Las contribuciones son bienvenidas. Lee [CONTRIBUTING.md](CONTRIBUTING.md) para los lineamientos.
+
+## Seguridad
+
+Si encuentras una vulnerabilidad, sigue el proceso descrito en [SECURITY.md](SECURITY.md).
+
+## Código de conducta
+
+Este proyecto sigue el [Código de Conducta](CODE_OF_CONDUCT.md) basado en Contributor Covenant.
+
+## Licencia
+
+Distribuido bajo licencia MIT. Ver [LICENSE](LICENSE) para más detalles.
+
+## Autor
+
+Carlos Isaac Ramírez Santamaría (cRamirez)

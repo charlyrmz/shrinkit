@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shrinkit"
+version = "0.1.0"
+description = "Herramienta CLI para comprimir archivos y reducir el tamano de imagenes."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Carlos Isaac Ramirez Santamaria" }
+]
+keywords = ["cli", "compression", "zip", "gzip", "image", "pillow"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Archiving :: Compression",
+    "Topic :: Utilities",
+]
+dependencies = []
+
+[project.optional-dependencies]
+image = ["Pillow>=10.0.0"]
+all = ["Pillow>=10.0.0"]
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+shrinkit = "shrinkit:main"
+
+[project.urls]
+Homepage = "https://github.com/cRamirez/shrinkit"
+Repository = "https://github.com/cRamirez/shrinkit"
+Issues = "https://github.com/cRamirez/shrinkit/issues"
+
+[tool.setuptools]
+py-modules = ["shrinkit"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
