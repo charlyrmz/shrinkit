@@ -1,5 +1,6 @@
 # shrinkit
 
+[![CI](https://github.com/cRamirez/shrinkit/actions/workflows/ci.yml/badge.svg)](https://github.com/cRamirez/shrinkit/actions/workflows/ci.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -112,11 +113,51 @@ Archivo creado: dataset.csv.gz
 
 Funcionalidad planeada para próximas versiones:
 
+- Refactorizar a estructura de paquete `src/shrinkit/`.
 - Soporte para `tar.gz` y `tar.bz2`.
 - Compresión de PDFs con `pikepdf`.
 - Procesamiento batch de carpetas de imágenes en paralelo, usando `concurrent.futures`.
 - Modo dry-run para estimar ahorro sin escribir archivos.
-- Tests automatizados con `pytest`.
+
+## Desarrollo
+
+### Configurar entorno
+
+```bash
+git clone https://github.com/cRamirez/shrinkit.git
+cd shrinkit
+python -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev,image]"
+```
+
+### Ejecutar tests
+
+```bash
+pytest
+```
+
+Para ver detalle de cada test:
+
+```bash
+pytest -v
+```
+
+Para ejecutar solo un archivo:
+
+```bash
+pytest tests/test_utils.py
+```
+
+### Linting
+
+```bash
+ruff check .
+```
+
+### Integración continua
+
+Cada push y cada PR a `main` dispara el workflow de GitHub Actions definido en `.github/workflows/ci.yml`. Este corre los tests en Python 3.10, 3.11 y 3.12, y valida el estilo con ruff.
 
 ## Contribuir
 

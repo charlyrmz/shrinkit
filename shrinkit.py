@@ -17,7 +17,6 @@ Uso rapido:
 
 import argparse
 import gzip
-import os
 import shutil
 import sys
 import zipfile
@@ -88,7 +87,7 @@ def cmd_zip(args: argparse.Namespace) -> int:
 def cmd_gzip(args: argparse.Namespace) -> int:
     source = Path(args.source)
     if not source.is_file():
-        print(f"Error: gzip solo acepta archivos individuales, no carpetas.", file=sys.stderr)
+        print("Error: gzip solo acepta archivos individuales, no carpetas.", file=sys.stderr)
         return 1
 
     output = Path(args.output) if args.output else source.with_suffix(source.suffix + ".gz")
