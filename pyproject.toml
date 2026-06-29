@@ -41,9 +41,9 @@ dev = [
 shrinkit = "shrinkit:main"
 
 [project.urls]
-Homepage = "https://github.com/cRamirez/shrinkit"
-Repository = "https://github.com/cRamirez/shrinkit"
-Issues = "https://github.com/cRamirez/shrinkit/issues"
+Homepage = "https://github.com/charlyrmz/shrinkit"
+Repository = "https://github.com/charlyrmz/shrinkit"
+Issues = "https://github.com/charlyrmz/shrinkit/issues"
 
 [tool.setuptools]
 py-modules = ["shrinkit"]
