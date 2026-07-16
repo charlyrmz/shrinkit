@@ -2,7 +2,7 @@
 
 import pytest
 
-from shrinkit import build_parser
+from shrinkit.cli import build_parser
 
 
 class TestParser:

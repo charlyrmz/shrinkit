@@ -12,7 +12,7 @@ Al ser un proyecto en etapa temprana, solo la versión más reciente recibe parc
 
 Si descubres una vulnerabilidad de seguridad en shrinkit, por favor **no** la reportes públicamente abriendo un issue. En su lugar:
 
-1. Abre un [security advisory privado](https://github.com/cRamirez/shrinkit/security/advisories/new) en GitHub.
+1. Abre un [security advisory privado](https://github.com/charlyrmz/shrinkit/security/advisories/new) en GitHub.
 2. Alternativamente, contacta directamente al autor del repositorio.
 
 Incluye en tu reporte:

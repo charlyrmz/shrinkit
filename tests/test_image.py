@@ -8,7 +8,7 @@ import pytest
 PIL = pytest.importorskip("PIL", reason="Pillow no instalado; instala con pip install '.[image]'")
 from PIL import Image  # noqa: E402
 
-from shrinkit import cmd_image  # noqa: E402
+from shrinkit.commands import cmd_image  # noqa: E402
 
 
 def make_args(**kwargs):

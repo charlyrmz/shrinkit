@@ -1,6 +1,6 @@
 """Tests para las funciones utilitarias de shrinkit."""
 
-from shrinkit import human_size, path_size
+from shrinkit.utils import human_size, path_size
 
 
 class TestHumanSize:

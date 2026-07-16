@@ -4,7 +4,7 @@ import argparse
 import gzip
 import zipfile
 
-from shrinkit import cmd_gzip, cmd_info, cmd_zip
+from shrinkit.commands import cmd_gzip, cmd_info, cmd_zip
 
 
 def make_args(**kwargs):

@@ -43,12 +43,18 @@ Esto instala el comando `shrinkit` en tu PATH.
 pip install -e .
 ```
 
-### Solo descargar el script
+### Ejecutar como módulo
 
-Si prefieres no instalar, puedes ejecutar el script directamente:
+Una vez instalado, también puedes invocarlo como módulo:
 
 ```bash
-python shrinkit.py --help
+python -m shrinkit --help
+```
+
+### Ver versión
+
+```bash
+shrinkit --version
 ```
 
 ## Uso
@@ -109,11 +115,24 @@ Archivo creado: dataset.csv.gz
   Ahorro:   74.3 %
 ```
 
+## Estructura del proyecto
+
+```
+shrinkit/
+├── .github/workflows/    Workflows de GitHub Actions (CI).
+├── src/shrinkit/         Codigo fuente del paquete.
+│   ├── __init__.py       Version del paquete.
+│   ├── __main__.py       Entry point para `python -m shrinkit`.
+│   ├── cli.py            Parser de argumentos y funcion main.
+│   ├── commands.py       Implementacion de los subcomandos.
+│   └── utils.py          Funciones auxiliares.
+└── tests/                Suite de tests con pytest.
+```
+
 ## Roadmap
 
 Funcionalidad planeada para próximas versiones:
 
-- Refactorizar a estructura de paquete `src/shrinkit/`.
 - Soporte para `tar.gz` y `tar.bz2`.
 - Compresión de PDFs con `pikepdf`.
 - Procesamiento batch de carpetas de imágenes en paralelo, usando `concurrent.futures`.
@@ -177,4 +196,4 @@ Distribuido bajo licencia MIT. Ver [LICENSE](LICENSE) para más detalles.
 
 ## Autor
 
-Carlos Isaac Ramírez Santamaría (cRamirez)
+Carlos Isaac Ramírez Santamaría (@charlyrmz)

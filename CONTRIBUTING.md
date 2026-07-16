@@ -4,7 +4,7 @@ Gracias por tu interés en contribuir. Este documento describe el flujo recomend
 
 ## Reportar bugs
 
-Antes de abrir un issue, revisa si ya existe uno similar en la [pestaña de Issues](https://github.com/cRamirez/shrinkit/issues). Si no, abre uno nuevo incluyendo:
+Antes de abrir un issue, revisa si ya existe uno similar en la [pestaña de Issues](https://github.com/charlyrmz/shrinkit/issues). Si no, abre uno nuevo incluyendo:
 
 - Versión de Python, sistema operativo y versión de shrinkit.
 - Comando exacto que ejecutaste.
@@ -21,7 +21,6 @@ Funcionalidades actualmente abiertas a contribución:
 - Compresión de PDFs.
 - Procesamiento paralelo de carpetas de imágenes.
 - Modo dry-run.
-- Tests automatizados con `pytest`.
 
 ## Flujo de trabajo
 
